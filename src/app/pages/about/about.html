@@ -1,0 +1,105 @@
+<app-page-hero
+  eyebrow="About Us"
+  [title]="about.headline.before"
+  [titleAccent]="about.headline.em"
+  [titleAfter]="about.headline.after"
+  [lead]="about.lead"
+  image="images/about-hero.jpg"
+>
+  <div class="hero-actions">
+    <a routerLink="/contact" class="btn btn--accent">Join the conversation</a>
+    <a routerLink="/team" class="btn btn--ghost hero-ghost">Meet the team</a>
+  </div>
+</app-page-hero>
+<section class="section section--tint">
+  <div class="container">
+    <div class="intro">
+      <div class="intro__lead">
+        <span class="eyebrow">Who we are</span>
+        <blockquote class="intro__quote">
+          {{ about.quote.before }} <em>{{ about.quote.em }}</em>
+        </blockquote>
+      </div>
+      <div class="intro__text">
+        @for (p of about.body; track $index) {
+          <p>{{ p }}</p>
+        }
+      </div>
+    </div>
+
+    <ul class="pillars">
+      @for (p of about.pillars; track p.title; let i = $index) {
+        <li class="pillar">
+          <span class="pillar__num" aria-hidden="true">{{ (i + 1).toString().padStart(2, '0') }}</span>
+          <h3>{{ p.title }}</h3>
+          <p>{{ p.text }}</p>
+        </li>
+      }
+    </ul>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <header class="cover-head">
+      <div>
+        <span class="eyebrow">What we cover</span>
+        <h2>From skin to spirituality</h2>
+      </div>
+      <p>
+        Six everyday sections and three signature series — each one adding to your quest
+        for an ‘informed and good’ living.
+      </p>
+    </header>
+
+    <ol class="topics">
+      @for (s of topics; track s.title; let i = $index) {
+        <li class="topic card">
+          <div class="topic__media">
+            <img [src]="s.image" alt="" loading="lazy" />
+            <span class="topic__num" aria-hidden="true">{{ (i + 1).toString().padStart(2, '0') }}</span>
+          </div>
+          <div class="topic__body">
+            <h3>{{ s.title }}</h3>
+            <p>{{ s.blurb }}</p>
+          </div>
+        </li>
+      }
+    </ol>
+
+    <div class="series-head">
+      <h3>Signature series</h3>
+    </div>
+
+    <ul class="specials">
+      @for (s of specials; track s.title) {
+        <li class="special">
+          <img [src]="s.image" alt="" loading="lazy" />
+          <div class="special__body">
+            <span class="special__tag">{{ s.tag }}</span>
+            <h4>{{ s.title }}</h4>
+            <p>{{ s.blurb }}</p>
+          </div>
+        </li>
+      }
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <app-team-cards />
+</section>
+<section class="section section--tint">
+  <div class="container">
+    <div class="callout">
+      <div class="callout__text">
+        <span class="eyebrow callout__eyebrow">Your Corner</span>
+        <h2>Your go-to digital destination</h2>
+        <p>{{ about.closing }}</p>
+      </div>
+      <div class="callout__actions">
+        <a routerLink="/contact" class="btn btn--primary">Share your thoughts</a>
+        <a routerLink="/team" class="btn btn--ghost callout__ghost">Meet the team</a>
+      </div>
+    </div>
+  </div>
+</section>

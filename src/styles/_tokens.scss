@@ -1,0 +1,64 @@
+// Brand colours come from the logo; ThemeService overrides --brand / --accent / --highlight
+// (and the matching --on-* text colours) at runtime.
+:root {
+  --brand: #c03426;
+  --accent: #b2db00;
+  --highlight: #f2e21b;
+  --on-brand: #ffffff;
+  --on-accent: #1c1b18;
+  --on-highlight: #1c1b18;
+
+  --bg: #fbfaf4;
+  --surface: #ffffff;
+  --surface-2: #f3f1e6;
+  --ink: #1f1d19;
+  --ink-muted: #5d594f;
+  --line: #e3dfd1;
+
+  // Dark bands (callout, footer) stay dark in both themes.
+  --band: #1c1b18;
+  --band-2: #26241f;
+  --on-band: #f2efe6;
+  --on-band-muted: #b2ac9d;
+  --band-line: rgb(255 255 255 / 0.12);
+
+  --brand-ink: color-mix(in srgb, var(--brand) 88%, black);
+  --brand-soft: color-mix(in srgb, var(--brand) 8%, var(--bg));
+  --accent-soft: color-mix(in srgb, var(--accent) 22%, var(--bg));
+  --accent-ink: color-mix(in srgb, var(--accent) 45%, #1c1b18);
+
+  --font-display: 'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-body: 'Open Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-deva: 'Tiro Devanagari Hindi', 'Open Sans', serif;
+
+  --radius-sm: 8px;
+  --radius: 16px;
+  --radius-lg: 28px;
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.05), 0 8px 24px -12px rgb(0 0 0 / 0.18);
+  --shadow-lg: 0 24px 60px -24px rgb(0 0 0 / 0.35);
+  --container: 1160px;
+  --gutter: clamp(16px, 4vw, 32px);
+  --header-h: 72px;
+
+  color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+  --bg: #13120f;
+  --surface: #1c1a16;
+  --surface-2: #25231e;
+  --ink: #f2efe6;
+  --ink-muted: #b2ac9d;
+  --line: #34312a;
+
+  --band: #0c0b09;
+  --band-2: #171612;
+
+  --brand-ink: color-mix(in srgb, var(--brand) 62%, white);
+  --brand-soft: color-mix(in srgb, var(--brand) 16%, var(--bg));
+  --accent-soft: color-mix(in srgb, var(--accent) 14%, var(--bg));
+  --accent-ink: color-mix(in srgb, var(--accent) 80%, white);
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.4), 0 8px 24px -12px rgb(0 0 0 / 0.6);
+
+  color-scheme: dark;
+}

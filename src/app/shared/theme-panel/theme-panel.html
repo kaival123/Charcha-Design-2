@@ -1,0 +1,80 @@
+<button
+  type="button"
+  class="trigger"
+  aria-label="Theme settings"
+  aria-haspopup="dialog"
+  [attr.aria-expanded]="open()"
+  aria-controls="theme-panel"
+  (click)="toggle()"
+>
+  <span class="trigger__dots" aria-hidden="true">
+    <i style="background: var(--brand)"></i>
+    <i style="background: var(--accent)"></i>
+  </span>
+  <span class="trigger__label">Theme</span>
+</button>
+
+@if (open()) {
+  <div id="theme-panel" class="panel card" role="dialog" aria-label="Theme settings">
+    <div class="group">
+      <h3 class="group__title">Appearance</h3>
+      <div class="segmented" role="radiogroup" aria-label="Colour mode">
+        @for (m of modes; track m.id) {
+          <button
+            type="button"
+            role="radio"
+            [attr.aria-checked]="theme.mode() === m.id"
+            [class.is-active]="theme.mode() === m.id"
+            (click)="theme.setMode(m.id)"
+          >
+            {{ m.label }}
+          </button>
+        }
+      </div>
+    </div>
+
+    <div class="group">
+      <h3 class="group__title">Palette</h3>
+      <div class="presets" role="radiogroup" aria-label="Colour palette">
+        @for (p of theme.presets; track p.id) {
+          <button
+            type="button"
+            role="radio"
+            class="preset"
+            [attr.aria-checked]="theme.presetId() === p.id"
+            [class.is-active]="theme.presetId() === p.id"
+            (click)="theme.setPreset(p.id)"
+          >
+            <span class="preset__swatch" [style.background]="p.accent" [style.border-color]="p.highlight">
+              <span [style.background]="p.primary"></span>
+            </span>
+            <span class="preset__name">{{ p.name }}</span>
+          </button>
+        }
+      </div>
+    </div>
+
+    <div class="group">
+      <h3 class="group__title">
+        Custom colours
+        @if (theme.presetId() === customId) {
+          <span class="chip">Active</span>
+        }
+      </h3>
+      @for (f of colorFields; track f.key) {
+        <label class="color-row">
+          <input type="color" [value]="theme.palette()[f.key]" (input)="onColor(f.key, $event)" />
+          <span>
+            <strong>{{ f.label }}</strong>
+            <small>{{ f.hint }}</small>
+          </span>
+          <code>{{ theme.palette()[f.key] }}</code>
+        </label>
+      }
+    </div>
+
+    <button type="button" class="btn btn--ghost reset" (click)="theme.reset()">
+      Reset to logo colours
+    </button>
+  </div>
+}

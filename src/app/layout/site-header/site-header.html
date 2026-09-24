@@ -1,0 +1,35 @@
+<header class="bar">
+  <div class="container bar__inner">
+    <a routerLink="/" class="brand" (click)="menuOpen.set(false)">
+      <img src="images/logo.png" alt="" width="44" height="44" />
+      <span class="brand__word">Charcha<b>Live</b></span>
+    </a>
+
+    <nav class="nav" [class.is-open]="menuOpen()" aria-label="Main">
+      @for (link of links; track link.path) {
+        <a
+          [routerLink]="link.path"
+          routerLinkActive="is-active"
+          [routerLinkActiveOptions]="{ exact: link.exact }"
+          ariaCurrentWhenActive="page"
+          (click)="menuOpen.set(false)"
+        >
+          {{ link.label }}
+        </a>
+      }
+    </nav>
+
+    <div class="bar__actions">
+      <app-theme-panel />
+      <button
+        type="button"
+        class="menu-btn"
+        [attr.aria-expanded]="menuOpen()"
+        aria-label="Toggle menu"
+        (click)="menuOpen.set(!menuOpen())"
+      >
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>

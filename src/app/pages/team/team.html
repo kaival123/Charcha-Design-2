@@ -1,0 +1,37 @@
+<app-page-hero
+  eyebrow="Our Team"
+  title="The people behind the"
+  titleAccent="conversation"
+  lead="Decades of experience across journalism, research, communications and public policy — brought together to build a thoughtful home for curated content."
+  image="images/team-hero.jpg"
+/>
+
+<section class="section">
+  <app-team-cards />
+</section>
+
+@for (p of profiles; track p.slug; let odd = $odd) {
+  <section class="section" [class.section--tint]="!odd" [id]="p.slug">
+    <article class="container profile" [class.profile--flip]="odd">
+      <aside class="profile__side">
+        <div class="profile__photo">
+          <img [src]="p.photo" [alt]="'Portrait of ' + p.name" loading="lazy" width="800" height="800" />
+        </div>
+        <ul class="profile__facts">
+          @for (h of p.highlights; track h) {
+            <li class="chip">{{ h }}</li>
+          }
+        </ul>
+      </aside>
+
+      <div class="profile__body">
+        <span class="eyebrow">Profile</span>
+        <h2>{{ p.name }}</h2>
+        <p class="profile__role">{{ p.role }}</p>
+        @for (para of p.bio; track $index) {
+          <p>{{ para }}</p>
+        }
+      </div>
+    </article>
+  </section>
+}

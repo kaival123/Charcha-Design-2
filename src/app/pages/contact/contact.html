@@ -1,0 +1,75 @@
+<app-page-hero
+  eyebrow="Contact"
+  title="Let's start a charcha"
+  lead="Questions, story ideas, a guest for The Talk, or a thought for Your Corner — we'd love to hear from you."
+  image="images/contact-hero.jpg"
+/>
+
+<section class="section">
+  <div class="container contact">
+    <div class="contact__info">
+      <span class="eyebrow">Reach us</span>
+      <h2>Contact information</h2>
+      <p class="muted">Write to us and we’ll get back to you as soon as we can.</p>
+
+      <ul class="channels">
+        @for (c of contact.channels; track c.label) {
+          <li>
+            <a class="channel card" [href]="c.href" [attr.target]="c.icon === 'pin' ? '_blank' : null" rel="noopener">
+              <span class="channel__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="22" height="22"><path [attr.d]="icons[c.icon]" fill="currentColor" /></svg>
+              </span>
+              <span>
+                <small>{{ c.label }}</small>
+                <strong>{{ c.value }}</strong>
+              </span>
+            </a>
+          </li>
+        }
+      </ul>
+
+      <div class="corner">
+        <img src="images/corner.jpg" alt="" loading="lazy" />
+        <div>
+          <strong>Your Corner</strong>
+          <p>Pick “Your Corner submission” in the form to share your own piece or perspective.</p>
+        </div>
+      </div>
+    </div>
+
+    <form class="form card" (submit)="submit($event)" novalidate>
+      <h2>Send a message</h2>
+
+      <div class="row">
+        <label>
+          <span>Name</span>
+          <input name="name" autocomplete="name" required />
+        </label>
+        <label>
+          <span>Email</span>
+          <input name="email" type="email" autocomplete="email" required />
+        </label>
+      </div>
+
+      <label>
+        <span>Topic</span>
+        <select name="topic">
+          @for (t of contact.topics; track t) {
+            <option>{{ t }}</option>
+          }
+        </select>
+      </label>
+
+      <label>
+        <span>Message</span>
+        <textarea name="message" rows="6" required></textarea>
+      </label>
+
+      <button type="submit" class="btn btn--primary">Send message</button>
+
+      @if (sent()) {
+        <p class="note" role="status">Your email app should open with the message ready to send.</p>
+      }
+    </form>
+  </div>
+</section>

@@ -1,0 +1,27 @@
+<footer class="footer">
+  <div class="container footer__grid">
+    <div class="footer__brand">
+      <img src="images/logo.png" alt="Charcha Live logo" width="72" height="72" />
+      <p>Lively conversations over diverse topics — perspectives rather than prejudices.</p>
+    </div>
+
+    <nav aria-label="Footer">
+      <h2>Explore</h2>
+      <a routerLink="/">About Us</a>
+      <a routerLink="/team">Our Team</a>
+      <a routerLink="/contact">Contact</a>
+    </nav>
+
+    <div>
+      <h2>Get in touch</h2>
+      @for (c of contact.channels; track c.label) {
+        <a [href]="c.href">{{ c.value }}</a>
+      }
+    </div>
+  </div>
+
+  <div class="container footer__base">
+    <span>© {{ year }} Charchalive. All rights reserved.</span>
+    <span class="deva" lang="hi">चर्चा</span>
+  </div>
+</footer>
