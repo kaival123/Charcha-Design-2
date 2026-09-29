@@ -1,0 +1,24 @@
+<button
+  type="button"
+  class="back-to-top-button"
+  [class.is-visible]="visible()"
+  [attr.tabindex]="visible() ? null : -1"
+  [attr.aria-hidden]="!visible()"
+  aria-label="Back to top"
+  (click)="toTop()"
+>
+  <svg class="back-to-top-button__ring" viewBox="0 0 60 60" aria-hidden="true">
+    <circle class="back-to-top-button__track" cx="30" cy="30" [attr.r]="radius" />
+    <circle
+      class="back-to-top-button__progress"
+      cx="30"
+      cy="30"
+      [attr.r]="radius"
+      [attr.stroke-dasharray]="circumference"
+      [attr.stroke-dashoffset]="dashOffset()"
+    />
+  </svg>
+  <svg class="back-to-top-button__icon" viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M6 15l6-6 6 6" />
+  </svg>
+</button>

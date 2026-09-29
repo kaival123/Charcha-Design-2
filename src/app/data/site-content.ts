@@ -31,7 +31,7 @@ export const ABOUT = {
   quote: { before: 'We revel in our pithy content that contains', em: 'perspectives rather than prejudices.' },
   body: [
     'The wide range – stretching from skin to spirituality – promises to be a delight for today’s youth and even those who nurtured them.',
-    'From historical parliamentary debates to celebrated cases which added a new dimension to Indian jurisprudence; from the latest in science & tech to travel and tourism; and from food recipes to fitness & fashion tips, every section will contribute to any netizen’s quest for an ‘informed and good’ living.',
+    'From historical Rajneeti Se Pare to celebrated cases which added a new dimension to Indian jurisprudence; from the latest in science & tech to travel and tourism; and from food recipes to Chust-Durast tips, every section will contribute to any netizen’s quest for an ‘informed and good’ living.',
   ],
   pillars: [
     { title: 'Curated', text: 'Pithy, handpicked content — no clutter, no noise.' },
@@ -39,13 +39,13 @@ export const ABOUT = {
     { title: 'Unique context', text: 'Perspectives that add to your ken, not prejudices.' },
   ],
   closing:
-    'Charchalive seeks to be your go-to digital destination by generating lively conversations over diverse topics. Our ‘Your Corner’ invites you to join in and share your thoughts.',
+    'Charchalive seeks to be your go-to digital destination by generating lively conversations over diverse topics. Our ‘Aapki Awaaz’ invites you to join in and share your thoughts.',
 };
 
 export const SECTIONS: Section[] = [
   {
-    title: 'Parliamentary Debates',
-    blurb: 'Historical debates that shaped the nation, revisited with context.',
+    title: 'Rajneeti Se Pare',
+    blurb: 'Historical Rajneeti Se Pare that shaped the nation, revisited with context.',
     image: 'images/parliament.jpg',
   },
   {
@@ -59,17 +59,17 @@ export const SECTIONS: Section[] = [
     image: 'images/science.jpg',
   },
   {
-    title: 'Travel & Tourism',
+    title: 'Yayawar Ki Dairy',
     blurb: 'Places worth the journey, and the stories that come with them.',
     image: 'images/travel.jpg',
   },
   {
-    title: 'Food & Recipes',
+    title: 'Khao Gali',
     blurb: 'Recipes and food traditions from kitchens across the country.',
     image: 'images/food.jpg',
   },
   {
-    title: 'Fitness & Fashion',
+    title: 'Chust-Durast',
     blurb: 'Practical tips for looking good and living well.',
     image: 'images/fitness.jpg',
   },
@@ -80,14 +80,14 @@ export const SECTIONS: Section[] = [
     image: 'images/katha.jpg',
   },
   {
-    title: 'The Talk',
+    title: 'Charcha',
     tag: 'Podcast',
     blurb:
       'Arc lights on those who may not be celebrities but deserve to be celebrated.',
     image: 'images/talk.jpg',
   },
   {
-    title: 'Your Corner',
+    title: 'Aapki Awaaz',
     tag: 'Community',
     blurb: 'Join in and share your thoughts. The conversation is yours too.',
     image: 'images/corner.jpg',
@@ -164,7 +164,7 @@ export const CONTACT = {
       href: 'mailto:contact@charchalive.com',
       icon: 'mail',
     },
-    { label: 'Phone', value: '+91 00000 00000', href: 'tel:+910000000000', icon: 'phone' },
+    // { label: 'Phone', value: '+91 00000 00000', href: 'tel:+910000000000', icon: 'phone' },
     {
       label: 'Office',
       value: 'New Delhi, India',
@@ -172,5 +172,5 @@ export const CONTACT = {
       icon: 'pin',
     },
   ] satisfies ContactChannel[],
-  topics: ['General enquiry', 'Your Corner submission', 'Suggest a guest for The Talk', 'Partnerships'],
+  topics: ['General enquiry', 'Aapki Awaaz submission', 'Suggest a guest for Charcha', 'Partnerships'],
 };

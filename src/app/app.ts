@@ -2,11 +2,12 @@ import { ViewportScroller } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ThemeService } from './core/theme.service';
+import { BackToTop } from './shared/back-to-top/back-to-top';
 import { SiteFooter } from './layout/site-footer/site-footer';
 import { SiteHeader } from './layout/site-header/site-header';
 
 @Component({
-  imports: [RouterOutlet, SiteHeader, SiteFooter],
+  imports: [RouterOutlet, SiteHeader, SiteFooter, BackToTop],
   selector: 'app-root',
   styleUrl: './app.scss',
   templateUrl: './app.html',

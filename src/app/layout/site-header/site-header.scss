@@ -1,7 +1,13 @@
-.bar {
+// Sticky must live on the host: <app-site-header> is only as tall as .bar,
+// so a sticky .bar would have no room to stick inside it.
+:host {
   position: sticky;
   top: 0;
   z-index: 50;
+  display: block;
+}
+
+.bar {
   background: color-mix(in srgb, var(--bg) 85%, transparent);
   backdrop-filter: saturate(1.4) blur(12px);
   border-bottom: 1px solid var(--line);

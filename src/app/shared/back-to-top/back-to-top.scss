@@ -1,0 +1,85 @@
+.back-to-top-button {
+  position: fixed;
+  right: clamp(16px, 3vw, 32px);
+  bottom: clamp(16px, 3vw, 32px);
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--on-accent);
+  box-shadow: 0 10px 24px -10px rgb(0 0 0 / 0.45);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  translate: 0 16px;
+  transition:
+    opacity 0.25s ease,
+    translate 0.25s ease,
+    visibility 0.25s,
+    scale 0.2s ease;
+
+  &.is-visible {
+    opacity: 1;
+    visibility: visible;
+    translate: 0 0;
+  }
+
+  &:hover {
+    scale: 1.06;
+
+    .back-to-top-button__icon {
+      translate: 0 -2px;
+    }
+  }
+
+  &:active {
+    scale: 0.96;
+  }
+
+  > svg {
+    grid-area: 1 / 1;
+  }
+}
+
+// Ring hugs the button edge and fills clockwise from 12 o'clock as the page scrolls.
+.back-to-top-button__ring {
+  width: 100%;
+  height: 100%;
+  rotate: -90deg;
+  fill: none;
+  stroke-width: 3;
+}
+
+.back-to-top-button__track {
+  stroke: color-mix(in srgb, var(--on-accent) 12%, transparent);
+}
+
+.back-to-top-button__progress {
+  stroke: var(--highlight);
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.1s linear;
+}
+
+.back-to-top-button__icon {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: translate 0.2s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .back-to-top-button,
+  .back-to-top-button__icon,
+  .back-to-top-button__progress {
+    transition: none;
+  }
+}
