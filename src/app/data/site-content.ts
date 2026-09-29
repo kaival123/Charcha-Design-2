@@ -136,7 +136,7 @@ export const PROFILES: Profile[] = [
   },
   {
     slug: 'abhilasha-daftuar',
-    name: 'Abhilasha Daftuar',
+    name: 'Abhilasha Daftuar (Founder)',
     role: 'International Relations, Ashoka University',
     tagline: 'Researcher & Writer — International Relations',
     summary: 'Ashoka University graduate in International Relations with a minor in History.',
